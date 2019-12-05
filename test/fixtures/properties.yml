@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+property_one:
+  id: 1
+  price: 100
+  user_id: 1
+  image: MyString
+  description: MyString
+  location: MyString
