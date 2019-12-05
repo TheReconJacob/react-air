@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  booking_id: 
-  raiting: 
-  comments: 
+  user_id: 1 
+  booking_id: 1
+  rating: 4
+  comments: tommys review
 
 two:
-  user_id: 
-  booking_id: 
-  raiting: 
-  comments: 
+  user_id: 3
+  booking_id: 1
+  rating: 5
+  comments: amelias comments
