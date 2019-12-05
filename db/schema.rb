@@ -10,6 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+
 ActiveRecord::Schema.define(version: 2019_12_05_103829) do
 
   create_table "bookings", force: :cascade do |t|

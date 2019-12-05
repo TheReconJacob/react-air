@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../../assets/stylesheets/application.css";
 class User extends React.Component {
   render() {
     const { name, password_digest } = this.props.user;
