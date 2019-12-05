@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        render component: "User", props: {user: User.find(params[:id])}
+        render component: "User", props: {user: User.find(params[:id])}, prerender: false
     end
 
     def create

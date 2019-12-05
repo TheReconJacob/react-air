@@ -1,6 +1,15 @@
 <%=form_with scope: :session, url: login_path, local: true do |f|%>
-    <%=f.text_field :name, required: true, placeholder: "username"%>
-    <%=f.text_field :password, type: :password, required: true, placeholder: "password"%>
-    <%=f.submit%>
+<div style="position: relative; margin-left: 44%; margin-top:5%;"><img src="https://i.ibb.co/wzWgtmr/812ac0e9-b573-49e4-af6c-9033dcabdf53-200x200.png" alt="89d2a255-9b73-415c-bba6-6e272a12b791-200x200" border="0"></div>
+<div style="position: relative; margin-left: 37%; margin-right: 37%; margin-top: 2%; border: 2px solid #98bcd6; border-radius: 25px; padding: 10px">
+    <p style="position: relative; left: 1px">Username:</p>
+    <%=f.text_field :name, required: true, placeholder: "username", style: "width: 400px"%>
+    <br>
+    <br>
+    <p style="position: relative; left: 1px">Password:</p>
+    <%=f.text_field :password, type: :password, required: true, placeholder: "password", style: "width: 400px"%>
+    <br>
+    <br>
+    <%=f.submit value: "login", style: "position: relative; left: 20px; width: 100px"%>
 <%end%>
-<%=link_to "create an account", new_user_url%>
+<%=link_to "create an account", new_user_url, style: "position: relative; left: 165px"%>
+</div>
