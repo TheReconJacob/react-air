@@ -10,17 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_161934) do
+ActiveRecord::Schema.define(version: 2019_12_05_103829) do
 
-  create_table "links", force: :cascade do |t|
-    t.string "url"
+  create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "property_id"
+    t.string "from_date"
+    t.string "to_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.integer "price"
+    t.integer "user_id"
+    t.string "image"
+    t.string "description"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "booking_id"
+    t.integer "rating"
+    t.string "comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
