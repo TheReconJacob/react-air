@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import "../../assets/stylesheets/application.css";
 class User extends React.Component {
   render() {
-    const { name, password_digest } = this.props.user;
+    const { username, password_digest } = this.props.user;
     return (
       <div>
-        User: {name} {password_digest}
+        User: {username}
+        <br />
+        Password: {password_digest}
         <a href="/logout"></a>
       </div>
     );
