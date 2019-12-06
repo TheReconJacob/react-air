@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        render component: "Review"
+        render component: "Review", props: {review: Review.find(params[:id])}
     end
 
     def create
