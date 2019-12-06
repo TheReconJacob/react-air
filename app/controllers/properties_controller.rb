@@ -9,18 +9,14 @@ class PropertiesController < ApplicationController
 
     def create
         user = User.find(params[:user_id])
-        user.property.create
-        property  = Property.create(Property_params)
-        redirect_to user_url
+        user.properties.create(property_params)
+        redirect_to user_url(user)
     end
 
     private
 
-    def Property_params
+    def property_params
         params.require(:property).permit(:image, :description, :label)
         
     end
-
-end
-
 end
