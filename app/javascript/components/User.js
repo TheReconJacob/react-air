@@ -56,7 +56,7 @@ class User extends React.Component {
           Hi, I'm Jacob.
         </p>
         <form
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
           action={`/users/${id}/properties`}
           method="POST"
           style={{
