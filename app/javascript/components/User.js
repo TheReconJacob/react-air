@@ -9,18 +9,18 @@ class User extends React.Component {
   };
   fileSelectedHandler = event => {
     this.setState({
-      selectedFile: event.target.files[0]
+      selectedFile: window.URL.createObjectURL(event.target.files[0])
     });
   };
-  fileUploadHandler = () => {
-    const fd = new FormData();
-    fd.append("image", this.state.selectedFile, this.state.selectedFile.name);
-    axios.post("/users/${id}/properties", fd).then(res => {
-      console.log(res);
-    });
-  };
+  // fileUploadHandler = () => {
+  //   const fd = new FormData();
+  //   fd.append("image", this.state.selectedFile, this.state.selectedFile.name);
+  //   axios.post("/users/${id}/properties", fd).then(res => {
+  //     console.log(res);
+  //   });
+  // };
   render() {
-    const { id, username, password_digest } = this.props.user;
+    const { id, username } = this.props.user;
     return (
       <div
         style={{
@@ -65,12 +65,13 @@ class User extends React.Component {
             right: "27.5%"
           }}
         >
-          Property Name:
+          <input name="authenticity_token" value={this.props.token} type="hidden" />
+          Property Location:
           <br />
           <input
             type="text"
-            name="propertyname"
-            placeholder="Property"
+            name="location"
+            placeholder="The Location of your property"
             style={{
               width: "400px"
             }}
@@ -93,13 +94,15 @@ class User extends React.Component {
           <div>
             <input
               type="file"
+              name="image"
               style={{ position: "absolute", top: "130%" }}
               onChange={this.fileSelectedHandler}
             />
           </div>
           <br />
+          <input name="price" value="25" type="number"/>
           <input
-            onClick={this.fileUploadHandler}
+            // onClick={this.fileUploadHandler}
             type="submit"
             value="Submit"
             style={{

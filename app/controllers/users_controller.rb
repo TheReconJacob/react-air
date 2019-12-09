@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        render component: "User", props: {user: User.find(params[:id])}, prerender: false
+        render component: "User", props: {user: User.find(params[:id]), token: form_authenticity_token}, prerender: false
     end
 
     def create
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :password)
+        params.require(:user).permit(:username, :password)
     end
 
 end

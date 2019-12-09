@@ -1,10 +1,21 @@
 class PropertiesController < ApplicationController
-    def new
-        @property = Property.new
+    skip_before_action :authorise
+
+    def index
+        properties = Property.all.map {|p|
+
+            {
+                :location => p.location,
+                :description => p.description,
+                :image => url_for(p.image),
+                :user => User.find(p.user_id)
+            }
+        }
+        render component: "Property", props: {properties: properties}, prerender: false
     end
 
     def show
-        render component: "Property", props: {property: Property.find(params[:id])}, prerender: false
+
     end
 
     def create
@@ -18,6 +29,6 @@ class PropertiesController < ApplicationController
     private
 
     def property_params
-        params.require(:property).permit(:image, :description, :label, :price)    
+        params.permit(:description, :location, :price, :user_id)    
     end
 end
