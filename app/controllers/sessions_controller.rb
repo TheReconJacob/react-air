@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
-    def index
+    skip_before_action :authorise
+
+    def new
     end
 
     def create
-        user = User.find_by(username: params[:session][:username])
-
-        if user && user.authenticate(params[:session][:password])
+        user = User.find_by({username: params[:sessions][:username]})
+        puts user.inspect
+        if user && user.authenticate(params[:sessions][:password])
             session[:user_id] = user.id.to_s
             redirect_to user_path(user)
         else
